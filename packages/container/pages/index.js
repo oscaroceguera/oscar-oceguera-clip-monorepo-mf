@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <h1 style={{ textAlign: "center", margin: "28px" }}>
-        Esta app va a transformarce en un contenedor MF!
+        Esta app va a transformarce en un contenedor MF Loco!
       </h1>
     </>
   );
