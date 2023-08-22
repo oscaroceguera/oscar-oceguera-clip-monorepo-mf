@@ -9,17 +9,10 @@ module.exports = {
           name: "container",
           filename: "static/chunks/remoteEntry.js",
           remotes: {
-            secondApp:
-              "secondApp@http://localhost:3001/_next/static/chunks/remoteEntrySecondApp.js",
-            // home: 'home@http://localhost:3001/_next/static/chunks/remoteEntry.js',
-            // checkout: 'checkout@http://localhost:3000/_next/static/chunks/remoteEntry.js',
+            // secondApp:
+            //   "secondApp@http://localhost:3001/_next/static/chunks/remoteEntrySecondApp.js",
+            marketing: `marketing@https://main.d1q1nicd5914fm.amplifyapp.com/remoteEntry.js`,
           },
-          // exposes: {
-          //   './shop': './pages/shop',
-          //   './pdp': './pages/p/[...slug].js',
-          //   './pages-map': './pages-map.js',
-          //   './customHook': './components/someHook.js',
-          // },
         })
       );
     }

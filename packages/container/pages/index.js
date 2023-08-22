@@ -1,27 +1,31 @@
-import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
-import { lazy } from "react";
-import styles from "@/styles/Home.module.css";
 
-let RemotePage = () => null;
-if (process.browser) {
-  //useCustomHook = require('shop/customHook').default;
-  RemotePage = lazy(() => {
-    return import("secondApp/secondApp");
-  });
-}
+import styles from "../styles/Home.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const Marketing = dynamic(() => import("../components/MarketingApp"), {
+  ssr: false,
+});
 
 function Home() {
   return (
-    <div style={{ border: "1px solid red", height: "90vh" }}>
-      <h1 style={{ textAlign: "center", margin: "28px" }}>
-        Esta app va a transformarce en un contenedor Microfront!
-      </h1>
-      <RemotePage />
+    <div className={styles.container}>
+      <h1>Container</h1>
+      <Marketing />
     </div>
   );
 }
+
+Home.getInitialProps = async (ctx) => {
+  if (process.browser) {
+    const page = (await import("../components/MarketingApp")).default;
+    console.log("running get initial props client side");
+    if (page.getInitialProps) {
+      return page.getInitialProps(ctx);
+    }
+  }
+  return {
+    needsPush: true,
+  };
+};
 
 export default Home;
