@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-
 import styles from "../styles/Home.module.css";
 
 const Marketing = dynamic(() => import("../components/MarketingApp"), {

@@ -1,14 +1,14 @@
 import { mount } from "marketing/MarketingApp";
 import React, { useRef, useEffect } from "react";
 
-export default () => {
+const MarketingApp = () => {
   const ref = useRef(null);
   // const history = useHistory();
 
   useEffect(() => {
     mount(ref.current, {
       initialPath: "/shop",
-      onNavigate: (f) => f,
+      onNavigate: () => {},
     });
 
     // history.listen(onParentNavigate);
@@ -16,3 +16,5 @@ export default () => {
 
   return <div ref={ref} />;
 };
+
+export default MarketingApp;
